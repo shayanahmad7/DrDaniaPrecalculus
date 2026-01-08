@@ -1,28 +1,28 @@
 "use client"
-import { useState, useEffect } from "react"
+
+import { ScrollAnimate } from "@/components/scroll-animate"
 
 export function Implementation() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-5xl font-bold text-slate-900 mb-6 animate-fadeInUp">Technical Implementation</h2>
-          <p className="text-xl text-slate-700 leading-relaxed max-w-3xl animate-fadeInUp delay-100">
+          <ScrollAnimate animation="fadeUp">
+            <h2 className="text-5xl font-bold text-slate-900 mb-6">Technical Implementation</h2>
+          </ScrollAnimate>
+          <ScrollAnimate animation="fadeUp" delay={100}>
+          <p className="text-xl text-slate-700 leading-relaxed max-w-3xl">
             SovereignAI is built on a thoughtful technical architecture designed to balance innovation, scalability, and
             institutional control over student data. Our approach evolved from a privacy-first local infrastructure to
             an enterprise partnership while maintaining the same pedagogical principles.
           </p>
+          </ScrollAnimate>
         </div>
 
         {/* Summer 2025: Local Infrastructure Section */}
         <div className="mb-16">
-          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-200">
+          <ScrollAnimate animation="fadeUp" delay={200}>
+          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg">
             <h3 className="text-3xl font-bold text-slate-900 mb-6">Summer 2025: Local OpenWebUI Infrastructure</h3>
 
             <div className="space-y-6 mb-8">
@@ -124,7 +124,8 @@ export function Implementation() {
             </div>
 
             {/* Architecture Diagram */}
-            <div className="my-12 bg-slate-900 rounded-xl p-8 flex items-center justify-center animate-scaleIn delay-300">
+            <ScrollAnimate animation="scale" delay={300}>
+            <div className="my-12 bg-slate-900 rounded-xl p-8 flex items-center justify-center">
               <div className="w-full h-auto">
                 <img
                   src="/images/openwebui-architecture.png"
@@ -133,8 +134,10 @@ export function Implementation() {
                 />
               </div>
             </div>
+            </ScrollAnimate>
 
-            <div className="bg-emerald-50 rounded-lg p-8 border border-emerald-200 animate-fadeInUp delay-400">
+            <ScrollAnimate animation="fadeUp" delay={400}>
+            <div className="bg-emerald-50 rounded-lg p-8 border border-emerald-200">
               <h4 className="font-bold text-slate-900 mb-3 text-lg">Data Sovereignty &amp; Security</h4>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex gap-3">
@@ -167,12 +170,15 @@ export function Implementation() {
                 </li>
               </ul>
             </div>
+            </ScrollAnimate>
           </div>
+          </ScrollAnimate>
         </div>
 
         {/* Spring 2026: NYU Pilot GenAI Section */}
         <div className="mb-16">
-          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-300">
+          <ScrollAnimate animation="fadeUp" delay={500}>
+          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg">
             <h3 className="text-3xl font-bold text-slate-900 mb-6">Spring 2026: NYU Pilot GenAI Partnership</h3>
 
             <div className="space-y-6">
@@ -205,7 +211,8 @@ export function Implementation() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-amber-50 rounded-lg p-6 border border-amber-200 animate-slideInLeft delay-400">
+                <ScrollAnimate animation="slideLeft" delay={600}>
+                <div className="bg-amber-50 rounded-lg p-6 border border-amber-200">
                   <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
                     <span className="text-xl">📊</span> Summer 2025 Pilot
                   </h4>
@@ -232,8 +239,10 @@ export function Implementation() {
                     </li>
                   </ul>
                 </div>
+                </ScrollAnimate>
 
-                <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 animate-slideInRight delay-400">
+                <ScrollAnimate animation="slideRight" delay={600}>
+                <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
                   <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
                     <span className="text-xl">🚀</span> Spring 2026 Scale
                   </h4>
@@ -260,14 +269,17 @@ export function Implementation() {
                     </li>
                   </ul>
                 </div>
+                </ScrollAnimate>
               </div>
             </div>
           </div>
+          </ScrollAnimate>
         </div>
 
         {/* Privacy &amp; Compliance */}
         <div>
-          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-xl p-10 text-white shadow-lg animate-fadeInUp delay-500">
+          <ScrollAnimate animation="fadeUp" delay={700}>
+          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-xl p-10 text-white shadow-lg">
             <h3 className="text-3xl font-bold mb-6">Privacy, Compliance &amp; Institutional Control</h3>
             <div className="space-y-6">
               <p className="text-lg text-slate-100 leading-relaxed">
@@ -302,6 +314,7 @@ export function Implementation() {
               </div>
             </div>
           </div>
+          </ScrollAnimate>
         </div>
       </div>
     </section>

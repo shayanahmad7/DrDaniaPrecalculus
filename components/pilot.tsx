@@ -1,13 +1,22 @@
+"use client"
+
+import { ScrollAnimate } from "@/components/scroll-animate"
+
 export function Pilot() {
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-5xl font-bold text-slate-900 mb-6 animate-fadeInUp">Research Timeline and Scale</h2>
+        <ScrollAnimate animation="fadeUp">
+          <h2 className="text-5xl font-bold text-slate-900 mb-6">Research Timeline and Scale</h2>
+        </ScrollAnimate>
 
-        <div className="h-1 w-16 bg-blue-600 rounded-full mb-12 animate-slideInLeft"></div>
+        <ScrollAnimate animation="slideLeft" delay={100}>
+          <div className="h-1 w-16 bg-blue-600 rounded-full mb-12"></div>
+        </ScrollAnimate>
 
         <div className="space-y-8">
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-10 border-l-4 border-amber-600 shadow-lg hover:shadow-xl transition-smooth-lg animate-slideInLeft delay-100">
+          <ScrollAnimate animation="slideLeft" delay={200}>
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-10 border-l-4 border-amber-600 shadow-lg hover:shadow-xl transition-smooth-lg">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">Summer 2025: Pilot Validation</h3>
             <p className="text-slate-700 leading-relaxed text-lg">
               The initial pilot of SovereignAI was conducted with 7 students in the summer precalculus course. This
@@ -20,8 +29,10 @@ export function Pilot() {
               <span className="text-lg">✓</span> Foundation for Spring 2026 scale-up
             </div>
           </div>
+          </ScrollAnimate>
 
-          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-10 border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-smooth-lg animate-slideInRight delay-200">
+          <ScrollAnimate animation="slideRight" delay={300}>
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-10 border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-smooth-lg">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">Spring 2026: Full Implementation</h3>
             <p className="text-slate-700 leading-relaxed text-lg">
               We are now preparing to scale the framework to the full spring semester cohort of approximately 70
@@ -34,8 +45,10 @@ export function Pilot() {
               <span className="text-lg">✓</span> Scaling to enterprise-grade infrastructure
             </div>
           </div>
+          </ScrollAnimate>
 
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-10 border border-slate-700 shadow-xl animate-fadeInUp delay-300 text-white">
+          <ScrollAnimate animation="fadeUp" delay={400}>
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-10 border border-slate-700 shadow-xl text-white">
             <p className="text-lg leading-relaxed">
               This progression from pilot to full implementation represents a methodical research approach: validate the
               concept with a small cohort, refine based on evidence, then scale with institutional partnership.
@@ -46,6 +59,7 @@ export function Pilot() {
               <span className="text-lg">↗</span> A journey of rigorous, responsible scaling
             </div>
           </div>
+          </ScrollAnimate>
         </div>
       </div>
     </section>

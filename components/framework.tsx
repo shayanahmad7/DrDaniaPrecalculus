@@ -1,27 +1,40 @@
+"use client"
+
+import { ScrollAnimate } from "@/components/scroll-animate"
+
 export function Framework() {
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-blue-50 to-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-slate-900 mb-6 animate-fadeInUp">The Daily Learning Cycle</h2>
+        <ScrollAnimate animation="fadeUp">
+          <h2 className="text-5xl font-bold text-slate-900 mb-6">The Daily Learning Cycle</h2>
+        </ScrollAnimate>
 
-        <div className="h-1 w-16 bg-blue-600 rounded-full mb-12 animate-slideInLeft"></div>
+        <ScrollAnimate animation="slideLeft" delay={100}>
+          <div className="h-1 w-16 bg-blue-600 rounded-full mb-12"></div>
+        </ScrollAnimate>
 
-        <p className="text-xl text-slate-700 leading-relaxed mb-16 max-w-3xl animate-fadeInUp delay-100">
-          The framework structures each student's day around a six-phase learning cycle that seamlessly integrates AI
-          tutoring with classroom instruction. This design ensures that AI support is strategically deployed at moments
-          of greatest pedagogical value.
-        </p>
+        <ScrollAnimate animation="fadeUp" delay={200}>
+          <p className="text-xl text-slate-700 leading-relaxed mb-16 max-w-3xl">
+            The framework structures each student's day around a six-phase learning cycle that seamlessly integrates AI
+            tutoring with classroom instruction. This design ensures that AI support is strategically deployed at moments
+            of greatest pedagogical value.
+          </p>
+        </ScrollAnimate>
 
-        <div className="rounded-xl overflow-hidden border border-slate-200 bg-white p-6 shadow-xl hover:shadow-2xl transition-smooth-lg mb-16 animate-scaleIn delay-200">
+        <ScrollAnimate animation="scale" delay={300}>
+        <div className="rounded-xl overflow-hidden border border-slate-200 bg-white p-6 shadow-xl hover:shadow-2xl transition-smooth-lg mb-16">
           <img
             src="/images/daily-learning-cycle.png"
             alt="Daily Learning Cycle showing the six-phase learning framework: Pre-Class AI Tutoring, JiTT Warm-Up Assignment, Instructor Feedback Loop, Post-Class AI Review, and Reflection/Bonus Practice"
             className="w-full h-auto rounded-lg"
           />
         </div>
+        </ScrollAnimate>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-lg hover:shadow-xl transition-smooth-lg animate-slideInLeft delay-300">
+          <ScrollAnimate animation="slideLeft" delay={400}>
+          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-lg hover:shadow-xl transition-smooth-lg">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-8 w-1 bg-blue-600 rounded-full"></div>
               <h3 className="font-bold text-slate-900 text-2xl">Outside Class</h3>
@@ -50,8 +63,10 @@ export function Framework() {
               </li>
             </ul>
           </div>
+          </ScrollAnimate>
 
-          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-lg hover:shadow-xl transition-smooth-lg animate-slideInRight delay-300">
+          <ScrollAnimate animation="slideRight" delay={400}>
+          <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-lg hover:shadow-xl transition-smooth-lg">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-8 w-1 bg-emerald-600 rounded-full"></div>
               <h3 className="font-bold text-slate-900 text-2xl">In Class</h3>
@@ -80,6 +95,7 @@ export function Framework() {
               </li>
             </ul>
           </div>
+          </ScrollAnimate>
         </div>
       </div>
     </section>

@@ -1,24 +1,37 @@
+"use client"
+
+import { ScrollAnimate } from "@/components/scroll-animate"
+
 export function Ethics() {
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 via-white to-slate-50">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-5xl font-bold text-slate-900 mb-6 animate-fadeInUp">Ethical AI Integration</h2>
+        <ScrollAnimate animation="fadeUp">
+          <h2 className="text-5xl font-bold text-slate-900 mb-6">Ethical AI Integration</h2>
+        </ScrollAnimate>
 
-        <div className="h-1 w-16 bg-blue-600 rounded-full mb-8 animate-slideInLeft"></div>
+        <ScrollAnimate animation="slideLeft" delay={100}>
+          <div className="h-1 w-16 bg-blue-600 rounded-full mb-8"></div>
+        </ScrollAnimate>
 
-        <p className="text-xl text-slate-700 leading-relaxed mb-16 max-w-3xl animate-fadeInUp delay-100">
+        <ScrollAnimate animation="fadeUp" delay={200}>
+        <p className="text-xl text-slate-700 leading-relaxed mb-16 max-w-3xl">
           SovereignAI was designed from the ground up to address the ethical challenges of deploying generative AI in
           higher education. Rather than adopting generic AI tools and retrofitting them to educational contexts, we
           developed an approach that places pedagogical integrity and student protection at the center.
         </p>
+        </ScrollAnimate>
 
         <div className="space-y-10">
           <div>
-            <h3 className="text-3xl font-semibold text-slate-900 mb-10 animate-fadeInUp delay-200">
-              Core Ethical Principles
-            </h3>
+            <ScrollAnimate animation="fadeUp" delay={300}>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-10">
+                Core Ethical Principles
+              </h3>
+            </ScrollAnimate>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-300 group">
+              <ScrollAnimate animation="fadeUp" delay={400}>
+              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg group">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-1 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full group-hover:from-blue-700 group-hover:to-blue-500 transition-colors"></div>
                   <div className="flex-grow">
@@ -31,8 +44,10 @@ export function Ethics() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimate>
 
-              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-400 group">
+              <ScrollAnimate animation="fadeUp" delay={500}>
+              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg group">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-1 bg-gradient-to-b from-emerald-600 to-emerald-400 rounded-full group-hover:from-emerald-700 group-hover:to-emerald-500 transition-colors"></div>
                   <div className="flex-grow">
@@ -45,8 +60,10 @@ export function Ethics() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimate>
 
-              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-500 group">
+              <ScrollAnimate animation="fadeUp" delay={600}>
+              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg group">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-1 bg-gradient-to-b from-purple-600 to-purple-400 rounded-full group-hover:from-purple-700 group-hover:to-purple-500 transition-colors"></div>
                   <div className="flex-grow">
@@ -59,8 +76,10 @@ export function Ethics() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimate>
 
-              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-600 group">
+              <ScrollAnimate animation="fadeUp" delay={700}>
+              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg group">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-1 bg-gradient-to-b from-amber-600 to-amber-400 rounded-full group-hover:from-amber-700 group-hover:to-amber-500 transition-colors"></div>
                   <div className="flex-grow">
@@ -73,8 +92,10 @@ export function Ethics() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimate>
 
-              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg animate-fadeInUp delay-700 group">
+              <ScrollAnimate animation="fadeUp" delay={800}>
+              <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-md hover:shadow-lg transition-smooth-lg group">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-1 bg-gradient-to-b from-indigo-600 to-indigo-400 rounded-full group-hover:from-indigo-700 group-hover:to-indigo-500 transition-colors"></div>
                   <div className="flex-grow">
@@ -87,10 +108,12 @@ export function Ethics() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimate>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-10 border border-blue-200 shadow-lg hover:shadow-xl transition-smooth-lg animate-fadeInUp delay-800">
+          <ScrollAnimate animation="fadeUp" delay={900}>
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-10 border border-blue-200 shadow-lg hover:shadow-xl transition-smooth-lg">
             <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
               <span className="text-3xl">🔬</span>
               Research Contribution
@@ -102,6 +125,7 @@ export function Ethics() {
               educational values and protecting student interests.
             </p>
           </div>
+          </ScrollAnimate>
         </div>
       </div>
     </section>
