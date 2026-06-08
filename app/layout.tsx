@@ -1,16 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Inter, Newsreader } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+})
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Math1000A | Ethical AI in Precalculus Education",
-  description: "A research framework for teaching precalculus with responsibly integrated AI tutoring at NYU Abu Dhabi",
-  generator: "v0.app",
+  title: "Precalculus with Dr. Dania | Course-Owned AI Companions",
+  description:
+    "A public showcase of Dr. Dania Zantout's Math1000A and Math1000B AI companion implementations at NYU Abu Dhabi.",
   icons: {
     icon: [
       {
@@ -36,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
+      <body>
         {children}
         <Analytics />
       </body>

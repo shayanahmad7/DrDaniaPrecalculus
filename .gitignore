@@ -28,3 +28,56 @@ next-env.d.ts
 
 # archives
 *.zip
+
+# local OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# private study/source materials
+private/
+_private/
+research-materials/
+research_materials/
+source-materials/
+source_materials/
+raw/
+raw-data/
+raw_data/
+data-raw/
+study-data/
+student-data/
+student_data/
+consent/
+consent-exports/
+survey-exports/
+conversation-exports/
+rosters/
+exports/
+downloads/
+incoming/
+
+# raw research artifacts; force-add only if explicitly sanitized/public
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.numbers
+*.docx
+*.pdf
+*.pptx
+*.jsonl
+*.ndjson
+
+# local generated reports and media drafts
+*.log
+*.tmp
+*.bak
+*.mov
+*.mp4
+*.webm
+output/playwright/
+.playwright-cli/
+playwright-report/
+test-results/

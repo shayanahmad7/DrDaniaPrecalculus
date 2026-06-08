@@ -1,0 +1,201 @@
+import { notFound } from "next/navigation"
+import { ArrowLeft, ArrowRight, CheckCircle2, FileText, ShieldCheck } from "lucide-react"
+import { getImplementation, implementations } from "@/lib/implementations"
+
+type PageProps = {
+  params: Promise<{ slug: string }>
+}
+
+export function generateStaticParams() {
+  return implementations.map((implementation) => ({ slug: implementation.slug }))
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params
+  const implementation = getImplementation(slug)
+
+  if (!implementation) {
+    return {
+      title: "Implementation not found | Precalculus with Dr. Dania",
+    }
+  }
+
+  return {
+    title: `${implementation.title} | Precalculus with Dr. Dania`,
+    description: implementation.summary,
+  }
+}
+
+export default async function ImplementationPage({ params }: PageProps) {
+  const { slug } = await params
+  const implementation = getImplementation(slug)
+
+  if (!implementation) {
+    notFound()
+  }
+
+  const currentIndex = implementations.findIndex((item) => item.slug === implementation.slug)
+  const previous = implementations[(currentIndex - 1 + implementations.length) % implementations.length]
+  const next = implementations[(currentIndex + 1) % implementations.length]
+
+  return (
+    <main className={`site-shell implementation-page accent-${implementation.accent}`}>
+      <header className="site-nav detail-nav">
+        <a className="brand-lockup" href="/" aria-label="Precalculus with Dr. Dania home">
+          <span>Precalculus</span>
+          <span>with Dr. Dania</span>
+        </a>
+        <nav aria-label="Implementation navigation">
+          <a href="/">Overview</a>
+          <a href="#ai-design">AI design</a>
+          <a href="#study-design">Study design</a>
+          <a href="#evidence">Evidence</a>
+        </nav>
+      </header>
+
+      <section className="detail-hero">
+        <img src={implementation.heroImage} alt="" aria-hidden="true" />
+        <div className="detail-hero-shade" aria-hidden="true" />
+        <div className="detail-hero-copy">
+          <a className="back-link" href="/">
+            <ArrowLeft size={17} aria-hidden="true" />
+            Overview
+          </a>
+          <p className="eyebrow">{`${implementation.period} | ${implementation.course}`}</p>
+          <h1>{implementation.title}</h1>
+          <p>{implementation.subtitle}</p>
+        </div>
+      </section>
+
+      <section className="detail-intro">
+        <div>
+          <p className="eyebrow">Core question</p>
+          <h2>{implementation.coreQuestion}</h2>
+        </div>
+        <p>{implementation.summary}</p>
+      </section>
+
+      <section className="detail-metrics" aria-label={`${implementation.title} metrics`}>
+        {implementation.metrics.map((metric) => (
+          <div className="metric" key={metric.label}>
+            <strong>{metric.value}</strong>
+            <span>{metric.label}</span>
+            <p>{metric.detail}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="detail-section">
+        <div className="detail-section-head">
+          <p className="eyebrow">Motivation</p>
+          <h2>Why this implementation existed.</h2>
+        </div>
+        <div className="prose-columns">
+          {implementation.motivation.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="detail-section two-column" id="ai-design">
+        <div className="detail-section-head sticky-head">
+          <p className="eyebrow">AI design</p>
+          <h2>What was built into the companion layer.</h2>
+        </div>
+        <div className="detail-list">
+          {implementation.aiDesign.map((item) => (
+            <article key={item}>
+              <CheckCircle2 size={20} aria-hidden="true" />
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="workflow-band">
+        <div className="detail-section-head">
+          <p className="eyebrow">Workflow</p>
+          <h2>How the implementation moved from course material to student work.</h2>
+        </div>
+        <ol className="workflow-rail">
+          {implementation.workflow.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="detail-section two-column" id="study-design">
+        <div className="detail-section-head sticky-head">
+          <p className="eyebrow">Study and operations design</p>
+          <h2>How evidence was structured.</h2>
+        </div>
+        <div className="detail-list">
+          {implementation.studyDesign.map((item) => (
+            <article key={item}>
+              <FileText size={20} aria-hidden="true" />
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="evidence-detail" id="evidence">
+        <div className="detail-section-head on-dark">
+          <p className="eyebrow">Evidence read</p>
+          <h2>What the documents support publicly.</h2>
+        </div>
+        <div className="evidence-columns">
+          {implementation.evidence.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="detail-section two-column">
+        <div className="detail-section-head sticky-head">
+          <p className="eyebrow">Lessons</p>
+          <h2>What carried into the next build.</h2>
+        </div>
+        <div className="lesson-list">
+          {implementation.lessons.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="source-band">
+        <div className="source-copy">
+          <ShieldCheck size={24} aria-hidden="true" />
+          <div>
+            <p className="eyebrow">Source families reviewed</p>
+            <h2>Public-safe synthesis only.</h2>
+            <p>
+              These source families informed the page. Raw rosters, chat transcripts, consent exports, survey exports,
+              grade workbooks, admin URLs, access tokens, private prompts, and assessment solutions are excluded from the
+              public site and repository.
+            </p>
+          </div>
+        </div>
+        <div className="source-list">
+          {implementation.sourceFamilies.map((source) => (
+            <span key={source}>{source}</span>
+          ))}
+        </div>
+      </section>
+
+      <nav className="detail-pager" aria-label="Other implementations">
+        <a href={`/implementations/${previous.slug}`}>
+          <ArrowLeft size={18} aria-hidden="true" />
+          <span>{previous.shortTitle}</span>
+        </a>
+        <a href={`/implementations/${next.slug}`}>
+          <span>{next.shortTitle}</span>
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+      </nav>
+    </main>
+  )
+}
