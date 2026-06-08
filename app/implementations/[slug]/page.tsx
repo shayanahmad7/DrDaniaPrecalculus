@@ -63,6 +63,14 @@ export default async function ImplementationPage({ params }: PageProps) {
         <WorkflowDiagram implementation={implementation} />
       </section>
 
+      <section className="detail-section diagram-section" id="daily-workflow">
+        <div className="detail-section-head">
+          <p className="eyebrow">Student day</p>
+          <h2>How a student moves through this implementation.</h2>
+        </div>
+        <DailyOperationsDiagram implementation={implementation} />
+      </section>
+
       <section className="detail-intro">
         <div>
           <p className="eyebrow">Core question</p>
@@ -79,14 +87,6 @@ export default async function ImplementationPage({ params }: PageProps) {
             <p>{metric.detail}</p>
           </div>
         ))}
-      </section>
-
-      <section className="detail-section diagram-section" id="daily-workflow">
-        <div className="detail-section-head">
-          <p className="eyebrow">Daily workflow</p>
-          <h2>What the student, bot, teacher, and evidence layer do.</h2>
-        </div>
-        <DailyOperationsDiagram implementation={implementation} />
       </section>
 
       <section className="detail-section diagram-section" id="bot-design">

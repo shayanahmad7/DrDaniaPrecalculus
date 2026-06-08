@@ -5,7 +5,7 @@ import {
 } from "lucide-react"
 import { designPrinciples, implementations, literatureFrame } from "@/lib/implementations"
 import { ImplementationButtons } from "@/components/implementation-buttons"
-import { LandingDayDiagram, MiniWorkflowDiagram } from "@/components/workflow-diagram"
+import { MiniWorkflowDiagram, ProgramMap } from "@/components/workflow-diagram"
 
 const researchAsset = (name: string) => `/images/research-assets/${name}`
 
@@ -38,7 +38,7 @@ export default function Home() {
             </p>
             <ImplementationButtons className="hero-implementation-buttons" label="Open an implementation" />
           </div>
-          <LandingDayDiagram />
+          <ProgramMap />
         </div>
       </section>
 

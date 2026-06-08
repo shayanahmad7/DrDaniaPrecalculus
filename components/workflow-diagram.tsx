@@ -603,33 +603,6 @@ export function ProgramMap() {
   )
 }
 
-export function LandingDayDiagram() {
-  const implementation = implementations.find((item) => item.slug === "summer-2026-matha-prose") ?? implementations[0]
-  const content = getDailyOperations(implementation)
-
-  return (
-    <div className="landing-day-diagram accent-brick" aria-label="Daily student and teacher workflow">
-      <div className="landing-day-head">
-        <span>Student day</span>
-        <strong>Before class, class, repair, closeout</strong>
-        <p>
-          Prep support happens before class, independent math happens in class, Autopsy repair happens after class, and
-          teacher QA closes the cycle.
-        </p>
-      </div>
-      <div className="landing-day-track">
-        {content.moments.map((moment, index) => (
-          <section key={moment.time}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{moment.time}</strong>
-            <p>{moment.student}</p>
-          </section>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export function MiniWorkflowDiagram({ implementation }: { implementation: Implementation }) {
   const diagram = getDiagram(implementation)
 
