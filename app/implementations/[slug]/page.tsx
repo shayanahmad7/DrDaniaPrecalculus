@@ -61,8 +61,11 @@ export default async function ImplementationPage({ params }: PageProps) {
           <p>{implementation.subtitle}</p>
         </div>
         <figure className="workflow-hero-figure">
-          <img src={implementation.workflowHero.image} alt={implementation.workflowHero.alt} />
-          <figcaption>
+          <picture>
+            <source media="(max-width: 700px)" srcSet={implementation.workflowHero.mobileImage} />
+            <img src={implementation.workflowHero.image} alt={implementation.workflowHero.alt} />
+          </picture>
+          <figcaption className="workflow-hero-caption">
             {implementation.workflowHero.steps.map((step, index) => (
               <span key={step}>
                 <small>{String(index + 1).padStart(2, "0")}</small>

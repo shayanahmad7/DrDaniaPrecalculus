@@ -17,6 +17,7 @@ export type Implementation = {
   lessons: string[]
   workflowHero: {
     image: string
+    mobileImage: string
     alt: string
     steps: string[]
   }
@@ -76,6 +77,7 @@ export const implementations: Implementation[] = [
     ],
     workflowHero: {
       image: "/images/workflow-heroes/summer-2025-local-pilot.webp",
+      mobileImage: "/images/workflow-heroes/summer-2025-local-pilot-mobile.webp",
       alt: "Workflow illustration showing course notes moving through a local model layer to student topic work, classroom math, and aggregate revision.",
       steps: ["Course notes", "Local model layer", "Student topic choice", "Classroom work", "Aggregate revision"],
     },
@@ -144,6 +146,7 @@ export const implementations: Implementation[] = [
     ],
     workflowHero: {
       image: "/images/workflow-heroes/spring-2026-matha-homework-scaffold.webp",
+      mobileImage: "/images/workflow-heroes/spring-2026-matha-homework-scaffold-mobile.webp",
       alt: "Workflow illustration showing a homework set, theme map, weekly bot, student attempt, and receipt audit loop.",
       steps: ["Homework set", "Theme map", "Weekly bot", "Student attempt", "Receipt audit"],
     },
@@ -213,6 +216,7 @@ export const implementations: Implementation[] = [
     ],
     workflowHero: {
       image: "/images/workflow-heroes/spring-2026-mathb-delayed-access-study.webp",
+      mobileImage: "/images/workflow-heroes/spring-2026-mathb-delayed-access-study-mobile.webp",
       alt: "Workflow illustration showing consent and course files splitting into early and delayed access groups before common assessments and de-identified analysis.",
       steps: ["Consent + files", "Early/delayed timing", "Socratic bot access", "AI-free assessments", "De-identified analysis"],
     },
@@ -283,6 +287,7 @@ export const implementations: Implementation[] = [
     ],
     workflowHero: {
       image: "/images/workflow-heroes/summer-2026-matha-prose.webp",
+      mobileImage: "/images/workflow-heroes/summer-2026-matha-prose-mobile.webp",
       alt: "Workflow illustration showing the Summer PROSE cycle from prep-only materials to no-AI class work, autopsy repair, portfolio work, and daily audit.",
       steps: ["Prep-only materials", "Prep receipt", "No-AI class work", "Autopsy repair", "Daily audit"],
     },
