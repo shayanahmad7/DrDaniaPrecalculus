@@ -10,8 +10,8 @@ import { MiniWorkflowDiagram, ProgramMap } from "@/components/workflow-diagram"
 const researchAsset = (name: string) => `/images/research-assets/${name}`
 
 const overviewMetrics = [
-  { value: "4", label: "implementation waves", detail: "From local pilot to Summer PROSE." },
-  { value: "52+", label: "documented companions", detail: "Local topic tutors plus PilotGenAI builds." },
+  { value: "4", label: "course builds", detail: "From local pilot to Summer PROSE." },
+  { value: "52+", label: "documented bots", detail: "Local topic tutors plus PilotGenAI builds." },
   { value: "396", label: "reviewed records", detail: "Tracked literature corpus behind the study framing." },
   { value: "1", label: "IRB study", detail: "Randomized delayed-access Math1000B protocol." },
 ]
@@ -33,8 +33,8 @@ export default function Home() {
             <p className="eyebrow">NYU Abu Dhabi | Math1000A/B</p>
             <h1>Precalculus with Dr. Dania</h1>
             <p>
-              A public, redacted showcase of Dr. Dania Zantout's course-owned AI companion work: local tutors,
-              homework-scaffold companions, an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
+              A public record of Dr. Dania Zantout's Math1000A/B course AI work: local tutors, homework-scaffold bots,
+              an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
             </p>
             <ImplementationButtons className="hero-implementation-buttons" label="Open an implementation" />
           </div>
@@ -45,11 +45,11 @@ export default function Home() {
       <section className="overview-band" id="overview">
         <div className="section-head">
           <p className="eyebrow">Project argument</p>
-          <h2>The project is not one chatbot. It is a sequence of course designs.</h2>
+          <h2>This was never one chatbot. It was four course builds.</h2>
           <p>
-            Across four implementations, Dr. Dania's work moved from local content containment to governed learning
-            workflows: source curation, homework routing, exact-version guardrails, prep receipts, autopsy repair,
-            QA checks, and AI-free evidence of independent understanding.
+            The work started with local topic tutors and kept getting more precise: homework routing, exact-version
+            checks, prep receipts, post-class autopsies, release QA, and AI-free work that still shows what students
+            understood on their own.
           </p>
         </div>
 
@@ -69,9 +69,9 @@ export default function Home() {
           <p className="eyebrow">Why this matters</p>
           <h2>Students already have AI. The hard question is who designs the learning.</h2>
           <p>
-            The literature review behind the MathB study is deliberately cautious. It does not claim that AI always
-            helps or always harms. It shows a design-sensitive field where guided, bounded, and course-integrated support
-            looks more defensible than unrestricted access, especially when learning is measured without AI.
+            The MathB literature review is cautious on purpose. It does not say AI helps or harms by default. It says
+            the design matters. A course bot with sources, rules, and teacher review is a different thing from an open
+            answer machine, especially when quizzes and exams still happen without AI.
           </p>
         </div>
         <div className="literature-list" aria-label="Literature review framing">
@@ -83,8 +83,8 @@ export default function Home() {
 
       <section className="section-block" id="implementations">
         <div className="section-head">
-          <p className="eyebrow">Implementation record</p>
-          <h2>Each wave changed the AI design and the evidence design.</h2>
+          <p className="eyebrow">Build record</p>
+          <h2>Each build changed the bot and the way the course team read the evidence.</h2>
         </div>
 
         <div className="implementation-list">
@@ -110,18 +110,18 @@ export default function Home() {
       <section className="evidence-band" id="evidence">
         <div className="section-head on-dark">
           <p className="eyebrow">Evidence and safety</p>
-          <h2>Public artifacts show the work without exposing the students.</h2>
+          <h2>Public records show the work without exposing the students.</h2>
           <p>
-            The public layer uses process diagrams, aggregate charts, and sanitized narratives. Raw logs,
-            student identifiers, consent exports, survey exports, grade books, private prompts, and assessment solutions
-            stay out of the website repository.
+            This site uses process diagrams, aggregate charts, and cleaned-up notes. Raw logs, student identifiers,
+            consent exports, survey exports, grade books, private prompts, and assessment solutions stay out of the
+            website repository.
           </p>
         </div>
 
         <div className="visual-pair">
           <figure>
             <img src={researchAsset("knowledge-composition.png")} alt="Aggregate knowledge composition chart" />
-            <figcaption>Knowledge files became routing, teaching, reflection, and QA artifacts.</figcaption>
+            <figcaption>Knowledge files became routing files, teaching notes, reflection prompts, and QA material.</figcaption>
           </figure>
           <figure>
             <img src={researchAsset("summer26-prose-usage.png")} alt="Aggregate Summer 2026 PROSE usage chart" />
@@ -148,8 +148,8 @@ export default function Home() {
           <p className="eyebrow">Credit</p>
           <h2>Led by Dr. Dania Zantout.</h2>
           <p>
-            This showcase gives public credit to Dr. Dania Zantout's Math1000A and Math1000B AI companion work at NYU Abu
-            Dhabi. Implementation, analysis, and production support were developed with Shayan Ahmad, Lawrence Torres,
+            This site gives public credit to Dr. Dania Zantout's Math1000A and Math1000B AI work at NYU Abu Dhabi.
+            Implementation, analysis, and production help came from Shayan Ahmad, Lawrence Torres,
             NYU PilotGenAI/OpenWebUI collaborators, and course-team partners.
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function Home() {
       <footer className="site-footer">
         <div>
           <strong>Precalculus with Dr. Dania</strong>
-          <p>Course-owned AI companion design for university mathematics.</p>
+          <p>Course AI design for university precalculus.</p>
         </div>
         <a href="#top">
           Back to top

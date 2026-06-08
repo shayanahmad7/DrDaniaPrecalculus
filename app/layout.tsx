@@ -17,9 +17,9 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = {
-  title: "Precalculus with Dr. Dania | Course-Owned AI Companions",
+  title: "Precalculus with Dr. Dania | Course AI Builds",
   description:
-    "A public showcase of Dr. Dania Zantout's Math1000A and Math1000B AI companion implementations at NYU Abu Dhabi.",
+    "A public record of Dr. Dania Zantout's Math1000A and Math1000B course AI work at NYU Abu Dhabi.",
   icons: {
     icon: [
       {

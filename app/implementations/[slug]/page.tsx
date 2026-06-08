@@ -66,7 +66,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section diagram-section" id="daily-workflow">
         <div className="detail-section-head">
           <p className="eyebrow">Student day</p>
-          <h2>How a student moves through this implementation.</h2>
+          <h2>How a student moves through this version.</h2>
         </div>
         <DailyOperationsDiagram implementation={implementation} />
       </section>
@@ -92,7 +92,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section diagram-section" id="bot-design">
         <div className="detail-section-head">
           <p className="eyebrow">Bot design</p>
-          <h2>How the companion is assembled.</h2>
+          <h2>What went into the bot.</h2>
         </div>
         <BotAnatomyDiagram implementation={implementation} />
         <ComponentMapDiagram implementation={implementation} />
@@ -101,7 +101,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section">
         <div className="detail-section-head">
           <p className="eyebrow">Motivation</p>
-          <h2>Why this implementation existed.</h2>
+          <h2>Why this version existed.</h2>
         </div>
         <div className="prose-columns">
           {implementation.motivation.map((paragraph) => (
@@ -113,7 +113,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section two-column" id="ai-design">
         <div className="detail-section-head sticky-head">
           <p className="eyebrow">AI design</p>
-          <h2>What was built into the companion layer.</h2>
+          <h2>What the bot was told to do.</h2>
         </div>
         <div className="detail-list">
           {implementation.aiDesign.map((item) => (
@@ -128,7 +128,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="workflow-band">
         <div className="detail-section-head">
           <p className="eyebrow">Workflow</p>
-          <h2>How the implementation moved from course material to student work.</h2>
+          <h2>How course material became student work.</h2>
         </div>
         <ol className="workflow-rail">
           {implementation.workflow.map((step, index) => (
@@ -143,7 +143,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section two-column" id="study-design">
         <div className="detail-section-head sticky-head">
           <p className="eyebrow">Study and operations design</p>
-          <h2>How evidence was structured.</h2>
+          <h2>How the course team read the evidence.</h2>
         </div>
         <div className="detail-list">
           {implementation.studyDesign.map((item) => (
@@ -158,7 +158,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="evidence-detail" id="evidence">
         <div className="detail-section-head on-dark">
           <p className="eyebrow">Evidence read</p>
-          <h2>What the documents support publicly.</h2>
+          <h2>What the documents let us say publicly.</h2>
         </div>
         <div className="evidence-columns">
           {implementation.evidence.map((item) => (
@@ -184,11 +184,11 @@ export default async function ImplementationPage({ params }: PageProps) {
           <ShieldCheck size={24} aria-hidden="true" />
           <div>
             <p className="eyebrow">Source families reviewed</p>
-            <h2>Public-safe synthesis only.</h2>
+            <h2>Public-safe notes only.</h2>
             <p>
-              These source families informed the page. Raw rosters, chat transcripts, consent exports, survey exports,
-              grade workbooks, admin URLs, access tokens, private prompts, and assessment solutions are excluded from the
-              public site and repository.
+              These are the source families behind the page. Raw rosters, chat transcripts, consent exports, survey
+              exports, grade workbooks, admin URLs, access tokens, private prompts, and assessment solutions are not in
+              the public site or repository.
             </p>
           </div>
         </div>
