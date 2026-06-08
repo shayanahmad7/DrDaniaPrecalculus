@@ -1114,6 +1114,61 @@ h3 {
   line-height: 0.96;
 }
 
+.workflow-hero-figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 250, 241, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 241, 0.06);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+  animation: rise 780ms 80ms ease-out both;
+}
+
+.workflow-hero-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.workflow-hero-figure figcaption {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 250, 241, 0.16);
+}
+
+.workflow-hero-figure span {
+  min-width: 0;
+  padding: 14px 13px 15px;
+  border-right: 1px solid rgba(255, 250, 241, 0.12);
+  color: rgba(255, 250, 241, 0.82);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.workflow-hero-figure span:last-child {
+  border-right: 0;
+}
+
+.workflow-hero-figure small {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1;
+}
+
+.hero-workflow-map {
+  padding: 0 64px 88px;
+  background: var(--deep);
+  color: var(--paper-3);
+}
+
+.hero-workflow-map .workflow-diagram {
+  max-width: 1480px;
+}
+
 .detail-intro {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
@@ -1445,11 +1500,37 @@ h3 {
   .evidence-band,
   .detail-intro,
   .detail-section,
+  .hero-workflow-map,
   .workflow-band,
   .evidence-detail,
   .source-band,
   .credit-band {
     padding: 72px 22px;
+  }
+
+  .hero-workflow-map {
+    padding-top: 0;
+  }
+
+  .workflow-hero-figure figcaption {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-hero-figure span {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 250, 241, 0.12);
+  }
+
+  .workflow-hero-figure span:last-child {
+    border-bottom: 0;
+  }
+
+  .workflow-hero-figure small {
+    margin: 0;
   }
 
   .detail-metrics {

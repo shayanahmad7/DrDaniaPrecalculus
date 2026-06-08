@@ -60,6 +60,20 @@ export default async function ImplementationPage({ params }: PageProps) {
           <h1>{implementation.title}</h1>
           <p>{implementation.subtitle}</p>
         </div>
+        <figure className="workflow-hero-figure">
+          <img src={implementation.workflowHero.image} alt={implementation.workflowHero.alt} />
+          <figcaption>
+            {implementation.workflowHero.steps.map((step, index) => (
+              <span key={step}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                {step}
+              </span>
+            ))}
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="hero-workflow-map" aria-label={`${implementation.title} workflow map`}>
         <WorkflowDiagram implementation={implementation} />
       </section>
 

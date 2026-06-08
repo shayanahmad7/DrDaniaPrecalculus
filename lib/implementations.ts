@@ -15,6 +15,11 @@ export type Implementation = {
   workflow: string[]
   evidence: string[]
   lessons: string[]
+  workflowHero: {
+    image: string
+    alt: string
+    steps: string[]
+  }
   metrics: Array<{ value: string; label: string; detail: string }>
   sourceFamilies: string[]
 }
@@ -69,6 +74,11 @@ export const implementations: Implementation[] = [
       "Students benefited from topic clarity, yet later builds needed stronger routing from homework problem to concept and method.",
       "The pilot gave later builds their working vocabulary: source bundles, prompt boundaries, review agents, and aggregate evidence.",
     ],
+    workflowHero: {
+      image: "/images/workflow-heroes/summer-2025-local-pilot.webp",
+      alt: "Workflow illustration showing course notes moving through a local model layer to student topic work, classroom math, and aggregate revision.",
+      steps: ["Course notes", "Local model layer", "Student topic choice", "Classroom work", "Aggregate revision"],
+    },
     metrics: [
       { value: "35", label: "bots", detail: "Unit, review, upload, and checking bots." },
       { value: "196", label: "linked files", detail: "Instructor notes, exercises, and review packets." },
@@ -132,6 +142,11 @@ export const implementations: Implementation[] = [
       "Usage volume alone can mislead; real engagement needs problem-level work and reflection.",
       "Anchor-concept scaffolds became a bridge between prerequisite repair and current homework performance.",
     ],
+    workflowHero: {
+      image: "/images/workflow-heroes/spring-2026-matha-homework-scaffold.webp",
+      alt: "Workflow illustration showing a homework set, theme map, weekly bot, student attempt, and receipt audit loop.",
+      steps: ["Homework set", "Theme map", "Weekly bot", "Student attempt", "Receipt audit"],
+    },
     metrics: [
       { value: "9", label: "HSC bots", detail: "Weekly homework-scaffold builds." },
       { value: "66", label: "linked files", detail: "Thematic analyses, PDFs, and receipts." },
@@ -196,6 +211,11 @@ export const implementations: Implementation[] = [
       "Prompt quality depended on exact-version handling, scope control, and refusal of bulk answer requests.",
       "The study also needed export checks, group-label audits, de-identification, and issue logs before the evidence could be trusted.",
     ],
+    workflowHero: {
+      image: "/images/workflow-heroes/spring-2026-mathb-delayed-access-study.webp",
+      alt: "Workflow illustration showing consent and course files splitting into early and delayed access groups before common assessments and de-identified analysis.",
+      steps: ["Consent + files", "Early/delayed timing", "Socratic bot access", "AI-free assessments", "De-identified analysis"],
+    },
     metrics: [
       { value: "57", label: "enrolled", detail: "Course roster used for stakeholder framing." },
       { value: "8", label: "bots", detail: "Seven weekly HSC agents plus Midterm." },
@@ -261,6 +281,11 @@ export const implementations: Implementation[] = [
       "Receipt gates keep the bot from turning receipts or portfolios into one-click outputs.",
       "The work now depends on release QA, complete data pulls, careful day mapping, and clean redaction.",
     ],
+    workflowHero: {
+      image: "/images/workflow-heroes/summer-2026-matha-prose.webp",
+      alt: "Workflow illustration showing the Summer PROSE cycle from prep-only materials to no-AI class work, autopsy repair, portfolio work, and daily audit.",
+      steps: ["Prep-only materials", "Prep receipt", "No-AI class work", "Autopsy repair", "Daily audit"],
+    },
     metrics: [
       { value: "15", label: "learners", detail: "Roster counters in the Summer PROSE workflow." },
       { value: "144", label: "chats", detail: "Official first-week Prep/Autopsy aggregate." },
