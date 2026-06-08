@@ -1,13 +1,10 @@
 import {
   ArrowRight,
-  BookOpenCheck,
-  ClipboardCheck,
   GraduationCap,
-  LockKeyhole,
-  Network,
   ShieldCheck,
 } from "lucide-react"
 import { designPrinciples, implementations, literatureFrame } from "@/lib/implementations"
+import { MiniWorkflowDiagram, ProgramMap } from "@/components/workflow-diagram"
 
 const researchAsset = (name: string) => `/images/research-assets/${name}`
 
@@ -16,29 +13,6 @@ const overviewMetrics = [
   { value: "52+", label: "documented companions", detail: "Local topic tutors plus PilotGenAI builds." },
   { value: "396", label: "reviewed records", detail: "Tracked literature corpus behind the study framing." },
   { value: "1", label: "IRB study", detail: "Randomized delayed-access Math1000B protocol." },
-]
-
-const throughline = [
-  {
-    icon: Network,
-    title: "From topics to workflows",
-    text: "The earliest system kept each topic contained. Later systems controlled the whole learning path: routing, method, receipt, repair, QA, and revision.",
-  },
-  {
-    icon: BookOpenCheck,
-    title: "From AI access to course design",
-    text: "The work asks what kind of AI support belongs inside a mathematics course, not whether students can find generic AI elsewhere.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "From usage to evidence",
-    text: "The project treats message counts as only a starting point. The public story centers meaningful preparation, independent assessment, and repair behavior.",
-  },
-  {
-    icon: LockKeyhole,
-    title: "From demos to governance",
-    text: "Private logs, student identities, source prompts, admin tokens, and assessment materials stay outside the public site and outside git.",
-  },
 ]
 
 export default function Home() {
@@ -58,27 +32,23 @@ export default function Home() {
       </header>
 
       <section className="home-hero" id="top">
-        <img
-          className="home-hero-image"
-          src="/images/generated-workflows/spring-2026-mathb-study.png"
-          alt=""
-          aria-hidden="true"
-        />
-        <div className="home-hero-shade" aria-hidden="true" />
-        <div className="home-hero-content">
-          <p className="eyebrow">NYU Abu Dhabi | Math1000A/B</p>
-          <h1>Precalculus with Dr. Dania</h1>
-          <p>
-            A public, redacted showcase of Dr. Dania Zantout's course-owned AI companion work: local tutors,
-            homework-scaffold companions, an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
-          </p>
-          <div className="hero-actions" aria-label="Page shortcuts">
-            <a href="#implementations">
-              Explore implementations
-              <ArrowRight size={18} aria-hidden="true" />
-            </a>
-            <a href="/implementations/spring-2026-mathb-delayed-access-study">View MathB study</a>
+        <div className="home-hero-grid">
+          <div className="home-hero-content">
+            <p className="eyebrow">NYU Abu Dhabi | Math1000A/B</p>
+            <h1>Precalculus with Dr. Dania</h1>
+            <p>
+              A public, redacted showcase of Dr. Dania Zantout's course-owned AI companion work: local tutors,
+              homework-scaffold companions, an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
+            </p>
+            <div className="hero-actions" aria-label="Page shortcuts">
+              <a href="#implementations">
+                Explore implementations
+                <ArrowRight size={18} aria-hidden="true" />
+              </a>
+              <a href="/implementations/summer-2026-matha-prose">See the daily PROSE cycle</a>
+            </div>
           </div>
+          <ProgramMap />
         </div>
       </section>
 
@@ -135,7 +105,7 @@ export default function Home() {
               key={implementation.slug}
             >
               <div className="implementation-index">{implementation.index}</div>
-              <img src={implementation.heroImage} alt="" aria-hidden="true" />
+              <MiniWorkflowDiagram implementation={implementation} />
               <div className="implementation-copy">
                 <p>{`${implementation.period} | ${implementation.course}`}</p>
                 <h3>{implementation.title}</h3>
@@ -152,7 +122,7 @@ export default function Home() {
           <p className="eyebrow">Evidence and safety</p>
           <h2>Public artifacts show the work without exposing the students.</h2>
           <p>
-            The public layer uses generated workflow visuals, aggregate charts, and sanitized narratives. Raw logs,
+            The public layer uses process diagrams, aggregate charts, and sanitized narratives. Raw logs,
             student identifiers, consent exports, survey exports, grade books, private prompts, and assessment solutions
             stay out of the website repository.
           </p>

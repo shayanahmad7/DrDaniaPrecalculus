@@ -6,7 +6,6 @@ export type Implementation = {
   title: string
   shortTitle: string
   subtitle: string
-  heroImage: string
   accent: "teal" | "ochre" | "blue" | "brick"
   summary: string
   coreQuestion: string
@@ -29,7 +28,6 @@ export const implementations: Implementation[] = [
     title: "Local Topic Tutors",
     shortTitle: "Local Pilot",
     subtitle: "The first course-sovereign OpenWebUI and Ollama pilot.",
-    heroImage: "/images/generated-workflows/summer-2025-local-pilot.png",
     accent: "teal",
     summary:
       "Dr. Dania Zantout's first AI implementation translated the Math1000A curriculum into a local mesh of topic-specific tutors. The system emphasized privacy, course ownership, and flipped-classroom support before the project moved to NYU PilotGenAI.",
@@ -93,7 +91,6 @@ export const implementations: Implementation[] = [
     title: "Homework Scaffold Companions",
     shortTitle: "MathA HSC",
     subtitle: "The move from topic containment to homework routing.",
-    heroImage: "/images/generated-workflows/spring-2026-matha-hsc.png",
     accent: "ochre",
     summary:
       "Spring Math1000A moved the project onto NYU PilotGenAI and rebuilt the tutor around homework scaffolding. Thematic analysis files connected homework problems to topics, subskills, mapped PDFs, prep receipts, and later anchor-concept routines.",
@@ -157,7 +154,6 @@ export const implementations: Implementation[] = [
     title: "Delayed-Access Socratic Study",
     shortTitle: "MathB Study",
     subtitle: "The empirical study: structured access, delayed access, and AI-free outcomes.",
-    heroImage: "/images/generated-workflows/spring-2026-mathb-study.png",
     accent: "blue",
     summary:
       "Math1000B converted the companion system into an IRB-framed classroom study: structured educator-controlled Socratic AI versus delayed access in an AI-saturated course ecology. The design centered on fairness, governance, prep receipts, and independent assessment evidence.",
@@ -222,7 +218,6 @@ export const implementations: Implementation[] = [
     title: "PROSE Prep and Autopsy Cycle",
     shortTitle: "Summer PROSE",
     subtitle: "The mature split between readiness before class and repair after class.",
-    heroImage: "/images/generated-workflows/summer-2026-prose-cycle.png",
     accent: "brick",
     summary:
       "Summer 2026 Math1000A is the most mature design so far. Each class cycle separates pre-class readiness from post-class error repair: Prep companions prepare students for class without leaking learning activities, while Autopsy companions support category-level repair after class.",
@@ -309,7 +304,7 @@ export const designPrinciples = [
   },
   {
     title: "Public Safety",
-    text: "Public artifacts use aggregate evidence and generated visuals; private logs, rosters, prompts, and assessment files stay out of git.",
+    text: "Public artifacts use process diagrams and aggregate evidence; private logs, rosters, prompts, and assessment files stay out of git.",
   },
 ]
 

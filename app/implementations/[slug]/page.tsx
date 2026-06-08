@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, ShieldCheck } from "lucide-react"
 import { getImplementation, implementations } from "@/lib/implementations"
+import { WorkflowDiagram } from "@/components/workflow-diagram"
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -54,8 +55,6 @@ export default async function ImplementationPage({ params }: PageProps) {
       </header>
 
       <section className="detail-hero">
-        <img src={implementation.heroImage} alt="" aria-hidden="true" />
-        <div className="detail-hero-shade" aria-hidden="true" />
         <div className="detail-hero-copy">
           <a className="back-link" href="/">
             <ArrowLeft size={17} aria-hidden="true" />
@@ -65,6 +64,7 @@ export default async function ImplementationPage({ params }: PageProps) {
           <h1>{implementation.title}</h1>
           <p>{implementation.subtitle}</p>
         </div>
+        <WorkflowDiagram implementation={implementation} />
       </section>
 
       <section className="detail-intro">
