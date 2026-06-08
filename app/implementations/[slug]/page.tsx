@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, ShieldCheck } from "lucide-react"
 import { getImplementation, implementations } from "@/lib/implementations"
-import { WorkflowDiagram } from "@/components/workflow-diagram"
+import { ImplementationButtons } from "@/components/implementation-buttons"
+import { BotAnatomyDiagram, ComponentMapDiagram, DailyOperationsDiagram, WorkflowDiagram } from "@/components/workflow-diagram"
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -46,12 +47,7 @@ export default async function ImplementationPage({ params }: PageProps) {
           <span>Precalculus</span>
           <span>with Dr. Dania</span>
         </a>
-        <nav aria-label="Implementation navigation">
-          <a href="/">Overview</a>
-          <a href="#ai-design">AI design</a>
-          <a href="#study-design">Study design</a>
-          <a href="#evidence">Evidence</a>
-        </nav>
+        <ImplementationButtons className="site-implementation-buttons" label="Implementation pages" />
       </header>
 
       <section className="detail-hero">
@@ -83,6 +79,23 @@ export default async function ImplementationPage({ params }: PageProps) {
             <p>{metric.detail}</p>
           </div>
         ))}
+      </section>
+
+      <section className="detail-section diagram-section" id="daily-workflow">
+        <div className="detail-section-head">
+          <p className="eyebrow">Daily workflow</p>
+          <h2>What the student, bot, teacher, and evidence layer do.</h2>
+        </div>
+        <DailyOperationsDiagram implementation={implementation} />
+      </section>
+
+      <section className="detail-section diagram-section" id="bot-design">
+        <div className="detail-section-head">
+          <p className="eyebrow">Bot design</p>
+          <h2>How the companion is assembled.</h2>
+        </div>
+        <BotAnatomyDiagram implementation={implementation} />
+        <ComponentMapDiagram implementation={implementation} />
       </section>
 
       <section className="detail-section">

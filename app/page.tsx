@@ -4,7 +4,8 @@ import {
   ShieldCheck,
 } from "lucide-react"
 import { designPrinciples, implementations, literatureFrame } from "@/lib/implementations"
-import { MiniWorkflowDiagram, ProgramMap } from "@/components/workflow-diagram"
+import { ImplementationButtons } from "@/components/implementation-buttons"
+import { LandingDayDiagram, MiniWorkflowDiagram } from "@/components/workflow-diagram"
 
 const researchAsset = (name: string) => `/images/research-assets/${name}`
 
@@ -23,12 +24,7 @@ export default function Home() {
           <span>Precalculus</span>
           <span>with Dr. Dania</span>
         </a>
-        <nav aria-label="Primary navigation">
-          <a href="#overview">Overview</a>
-          <a href="#implementations">Implementations</a>
-          <a href="#evidence">Evidence</a>
-          <a href="#credit">Credit</a>
-        </nav>
+        <ImplementationButtons className="site-implementation-buttons" label="Implementation pages" />
       </header>
 
       <section className="home-hero" id="top">
@@ -40,15 +36,9 @@ export default function Home() {
               A public, redacted showcase of Dr. Dania Zantout's course-owned AI companion work: local tutors,
               homework-scaffold companions, an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
             </p>
-            <div className="hero-actions" aria-label="Page shortcuts">
-              <a href="#implementations">
-                Explore implementations
-                <ArrowRight size={18} aria-hidden="true" />
-              </a>
-              <a href="/implementations/summer-2026-matha-prose">See the daily PROSE cycle</a>
-            </div>
+            <ImplementationButtons className="hero-implementation-buttons" label="Open an implementation" />
           </div>
-          <ProgramMap />
+          <LandingDayDiagram />
         </div>
       </section>
 
