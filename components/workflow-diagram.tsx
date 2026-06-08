@@ -1,7 +1,7 @@
 import type { Implementation } from "@/lib/implementations"
 import { implementations } from "@/lib/implementations"
 
-type DiagramRole = "teacher" | "student" | "system" | "evidence" | "classroom" | "research"
+type DiagramRole = "teacher" | "student" | "system" | "review" | "classroom" | "research"
 
 type DiagramStep = {
   role: DiagramRole
@@ -23,7 +23,7 @@ type DailyMoment = {
   student: string
   bot: string
   teacher: string
-  evidence: string
+  check: string
 }
 
 type DailyOperationsContent = {
@@ -54,7 +54,7 @@ const diagrams: Record<string, DiagramContent> = {
   "summer-2025-local-pilot": {
     kicker: "Summer 2025 daily loop",
     title: "Topic tutor mesh around the flipped class",
-    note: "The pattern matters: Dr. Dania's unit files feed a local OpenWebUI/Ollama system, students prepare outside class, and aggregate logs point to the next prompt or source revision.",
+    note: "The pattern matters: Dr. Dania's unit files feed a local OpenWebUI/Ollama system, students prepare outside class, and internal review points to the next prompt or source revision.",
     steps: [
       {
         role: "teacher",
@@ -81,9 +81,9 @@ const diagrams: Record<string, DiagramContent> = {
         detail: "Class focuses on collaborative problem solving and discussion.",
       },
       {
-        role: "evidence",
-        label: "Evidence",
-        title: "Aggregate logs",
+        role: "review",
+        label: "Review",
+        title: "Internal patterns",
         detail: "Use patterns and model behavior feed the next design pass.",
       },
     ],
@@ -92,7 +92,7 @@ const diagrams: Record<string, DiagramContent> = {
   "spring-2026-matha-homework-scaffold": {
     kicker: "Spring 2026 homework loop",
     title: "From homework problem to mapped study path",
-    note: "The route matters. A student's exact homework question is mapped to themes, PDFs, a guided attempt, and prep-receipt evidence rather than a generic answer.",
+    note: "The route matters. A student's exact homework question is mapped to themes, PDFs, a guided attempt, and prep receipt rather than a generic answer.",
     steps: [
       {
         role: "teacher",
@@ -116,13 +116,13 @@ const diagrams: Record<string, DiagramContent> = {
         role: "student",
         label: "Student output",
         title: "Prep receipt",
-        detail: "Student records readiness, work shown, and next step.",
+        detail: "Student writes readiness, work shown, and next step.",
       },
       {
-        role: "evidence",
+        role: "review",
         label: "Audit",
         title: "Theme credit",
-        detail: "Logs are read for concrete problem work, not overview prompts.",
+        detail: "Internal review checks for concrete problem work, not overview prompts.",
       },
     ],
     checks: ["9 HSC bots", "Mapped study PDFs", "Anchor-concept scaffolds", "Manual HW6/HW7 audit"],
@@ -130,7 +130,7 @@ const diagrams: Record<string, DiagramContent> = {
   "spring-2026-mathb-delayed-access-study": {
     kicker: "Spring 2026 study design",
     title: "Delayed-access trial inside the course schedule",
-    note: "This diagram keeps the randomized comparison separate from the later full-course rollout. Those two evidence streams should not be mixed.",
+    note: "This diagram keeps the randomized comparison separate from the later full-course rollout. Those two phases should not be mixed.",
     steps: [
       {
         role: "research",
@@ -157,10 +157,10 @@ const diagrams: Record<string, DiagramContent> = {
         detail: "Quizzes and exams stay AI-free.",
       },
       {
-        role: "evidence",
+        role: "review",
         label: "Analysis",
-        title: "De-identified exports",
-        detail: "Usage, receipts, surveys, and course records are analyzed safely.",
+        title: "Private analysis",
+        detail: "Study interpretation stays in the private project archive.",
       },
     ],
     checks: ["IRB delayed-access protocol", "Exact-version rules", "AI-free quizzes/exams", "Post-rollout separated"],
@@ -189,8 +189,8 @@ const diagrams: Record<string, DiagramContent> = {
         detail: "Repair uses LA, solution notes, category map, and guide.",
       },
       {
-        role: "evidence",
-        label: "Evidence",
+        role: "review",
+        label: "Repair work",
         title: "Receipt + portfolio",
         detail: "The bot cannot close the loop without category-level work from the student.",
       },
@@ -208,28 +208,28 @@ const diagrams: Record<string, DiagramContent> = {
 const dailyOperations: Record<string, DailyOperationsContent> = {
   "summer-2025-local-pilot": {
     title: "A student day in the local pilot",
-    note: "The pilot day starts with topic choice: the student picks a bounded bot, prepares outside class, and the course team reads aggregate use to revise the local mesh.",
+    note: "The pilot day starts with topic choice: the student picks a bounded bot, prepares outside class, and the course team uses internal review to revise the local mesh.",
     moments: [
       {
         time: "Before class",
         student: "Chooses the unit tutor that matches the upcoming topic or a stuck prerequisite.",
         bot: "Retrieves only from that topic's notes, exercises, and local prompt instructions.",
         teacher: "Maintains unit files and decides which bots need revision.",
-        evidence: "Topic use, chat count, message count, and rubric notes.",
+        check: "Course-team notes about which topic files need revision.",
       },
       {
         time: "During class",
         student: "Works through flipped-classroom problems without relying on the bot for answers.",
         bot: "Stays outside the live class activity unless review is part of that day.",
         teacher: "Uses class discussion to spot concepts that need more attention.",
-        evidence: "Classroom observations are compared with aggregate OpenWebUI use.",
+        check: "Classroom observations guide the next source or prompt revision.",
       },
       {
         time: "After class",
         student: "Returns to a topic tutor or review bot to repair a gap.",
         bot: "Uses local model routing and bounded retrieval to explain, check, or review within the unit.",
         teacher: "Reads patterns across topics rather than private student histories.",
-        evidence: "Anonymized logs and model-use summaries inform the next build.",
+        check: "Internal platform review informs the next build.",
       },
     ],
   },
@@ -242,21 +242,21 @@ const dailyOperations: Record<string, DailyOperationsContent> = {
         student: "Brings one problem, image, or vague stuck point from the weekly set.",
         bot: "Names the theme, subskill, source PDF, and prerequisite anchor concept.",
         teacher: "Prepares thematic-analysis files that tell the bot what each problem is really testing.",
-        evidence: "Theme match, source routing, and whether the student makes a concrete attempt.",
+        check: "Course-team check: theme match, source routing, and concrete attempt.",
       },
       {
         time: "Work session",
         student: "Explains the attempt, names the block, and tries the next micro-step.",
         bot: "Uses the homework scaffold to hint, diagnose, and return the work to the student.",
         teacher: "Checks whether the bot is guiding the process rather than solving.",
-        evidence: "Prep receipts and HW6/HW7 audit records.",
+        check: "Course-team check: whether the scaffold returns the work to the student.",
       },
       {
         time: "Before submission",
         student: "Records readiness, unresolved questions, and the next study action.",
         bot: "Creates a receipt only when the conversation shows problem-level work.",
         teacher: "Compares volume with quality so message count does not become the metric.",
-        evidence: "Concrete theme credit, adoption status, and engagement profile.",
+        check: "Course-team check: concrete work rather than overview-only use.",
       },
     ],
   },
@@ -269,21 +269,21 @@ const dailyOperations: Record<string, DailyOperationsContent> = {
         student: "Uses either course-bot access or ordinary permitted resources, depending on randomized timing.",
         bot: "For early access, asks for the exact problem version and uses the Socratic help ladder.",
         teacher: "Keeps homework, quizzes, assessments, office hours, and materials common across groups.",
-        evidence: "Timing condition, usage metadata, prep receipts, and consent-safe records.",
+        check: "Protocol materials stay in the private project archive.",
       },
       {
         time: "Homework preparation",
         student: "Shows a checkpoint, graph, value, sign, or screenshot from the randomized problem.",
         bot: "Verifies exact-version details before computing or suggesting a method.",
         teacher: "Uses weekly alignment maps and teaching notes to keep the bot in course style.",
-        evidence: "Aligned vs risky chat ratings, issue taxonomy, and receipt/reflection behavior.",
+        check: "Internal check: alignment, issue type, and reflection behavior.",
       },
       {
         time: "Assessment",
         student: "Takes quizzes and exams without AI so independent understanding stays visible.",
         bot: "Does not participate in AI-free outcome measures.",
-        teacher: "Separates randomized comparison evidence from later full-course rollout evidence.",
-        evidence: "De-identified course records, diagnostics, survey measures, and analysis exports.",
+        teacher: "Separates randomized comparison work from later full-course rollout work.",
+        check: "Public summary shows the design, not private study files.",
       },
     ],
   },
@@ -296,28 +296,28 @@ const dailyOperations: Record<string, DailyOperationsContent> = {
         student: "Uses the Prep bot to preview content, repair prerequisites, and make a prep receipt.",
         bot: "Sees content PDFs and learning maps only; it cannot see learning activities or solutions.",
         teacher: "Releases the correct Prep bot and checks that it refuses activity leakage.",
-        evidence: "Prep receipt with readiness, gap, source, and next step.",
+        check: "Course-team check: readiness, gap, source, and next step.",
       },
       {
         time: "In class",
         student: "Completes the learning activity without AI and creates visible mathematical work.",
         bot: "Has no role during the AI-free activity.",
         teacher: "Watches for errors, emphasizes methods, and keeps the activity AI-free.",
-        evidence: "Paper or in-class work, plus representative problems for later repair.",
+        check: "Course-team check: paper or in-class work for later repair.",
       },
       {
         time: "After class",
         student: "Uses the Autopsy bot with category, exercise, attempt, and stuck point.",
         bot: "Sees the full repair packet: activity, solution notes, category map, lookup table, and guide.",
         teacher: "Checks that repair is category-level and not a one-click portfolio file.",
-        evidence: "Autopsy receipt, repair notes, verification moves, and portfolio completion.",
+        check: "Course-team check: repair notes, verification moves, and portfolio completion.",
       },
       {
         time: "Closeout",
         student: "Leaves a prep-and-repair trail for the day.",
-        bot: "Stores the conversation path for export and audit.",
-        teacher: "Scores pre/post evidence, checks day mapping, and fixes operational mismatches.",
-        evidence: "Daily 0/0.5/1 score, admin export, QA pass, and mapping audit.",
+        bot: "Keeps the conversation available for internal grading checks.",
+        teacher: "Scores the closed cycle, checks day mapping, and fixes operational mismatches.",
+        check: "Course-team check: daily score, QA pass, and mapping audit.",
       },
     ],
   },
@@ -344,10 +344,10 @@ const botComponents: Record<string, BotComponent[]> = {
       pieces: ["Topic scope", "Step guidance", "Answer checking", "Review help"],
     },
     {
-      label: "Evidence loop",
-      title: "Aggregate logs guide revision",
-      detail: "The pilot looked at engagement and bot behavior at the system level.",
-      pieces: ["Anonymized logs", "Message totals", "Engagement rubric", "Model-use summary"],
+      label: "Review loop",
+      title: "Internal review guides revision",
+      detail: "The pilot looked at engagement and bot behavior at the system level for internal revision.",
+      pieces: ["Rubric", "Topic patterns", "Model notes", "Revision target"],
     },
   ],
   "spring-2026-matha-homework-scaffold": [
@@ -365,15 +365,15 @@ const botComponents: Record<string, BotComponent[]> = {
     },
     {
       label: "Receipt",
-      title: "Prep evidence is part of the design",
+      title: "Prep receipts are part of the design",
       detail: "The bot generated a useful receipt only when the conversation showed concrete homework work.",
-      pieces: ["Readiness", "Evidence statement", "Next step", "Unresolved question"],
+      pieces: ["Readiness", "Work shown", "Next step", "Unresolved question"],
     },
     {
       label: "Audit",
       title: "Quality is not the same as volume",
       detail: "Manual HW6/HW7 review separated deep problem work from overview prompts and passive platform use.",
-      pieces: ["Raw logs", "Packetized histories", "Theme credit", "Engagement profiles"],
+      pieces: ["Checkpoint weeks", "Theme review", "Attempt quality", "Revision target"],
     },
   ],
   "spring-2026-mathb-delayed-access-study": [
@@ -397,9 +397,9 @@ const botComponents: Record<string, BotComponent[]> = {
     },
     {
       label: "Analysis",
-      title: "Separate study evidence from rollout evidence",
-      detail: "The public page keeps comparison-window findings separate from later coursewide access.",
-      pieces: ["Usage exports", "Chat ratings", "Issue taxonomy", "De-identified records"],
+      title: "Separate the comparison from the rollout",
+      detail: "The public page explains the protocol boundary and keeps study files private.",
+      pieces: ["Protocol phases", "Prompt ratings", "Issue taxonomy", "Private study files"],
     },
   ],
   "summer-2026-matha-prose": [
@@ -417,15 +417,15 @@ const botComponents: Record<string, BotComponent[]> = {
     },
     {
       label: "Gates",
-      title: "The bot asks for category-level evidence",
+      title: "The bot asks for category-level work",
       detail: "The post-class bot cannot finish the portfolio path without exercise, attempt, stuck point, and repair mode.",
       pieces: ["Category", "Exercise", "Attempt", "Repair mode"],
     },
     {
       label: "Operations",
       title: "Teacher scoring and QA close the loop",
-      detail: "The build includes release checks, data export, day mapping, and daily engagement grades.",
-      pieces: ["0/0.5/1 score", "16-point QA", "Admin export", "Day mapping"],
+      detail: "The build includes release checks, day mapping, and daily engagement grades.",
+      pieces: ["0/0.5/1 score", "16-point QA", "Teacher review", "Day mapping"],
     },
   ],
 }
@@ -433,7 +433,7 @@ const botComponents: Record<string, BotComponent[]> = {
 const componentMaps: Record<string, ComponentMapContent> = {
   "summer-2025-local-pilot": {
     title: "Component map for a local topic tutor",
-    note: "Each tutor is a small bounded setup: source files, scope prompt, local model route, and aggregate evidence.",
+    note: "Each tutor is a small bounded setup: source files, scope prompt, local model route, and course-team review.",
     rows: [
       {
         layer: "Knowledge",
@@ -455,8 +455,8 @@ const componentMaps: Record<string, ComponentMapContent> = {
       },
       {
         layer: "Review",
-        input: "Anonymized activity",
-        rule: "Read aggregate patterns",
+        input: "Internal review notes",
+        rule: "Read course-level patterns",
         output: "Revision target for the next prompt/source pass",
       },
     ],
@@ -485,9 +485,9 @@ const componentMaps: Record<string, ComponentMapContent> = {
       },
       {
         layer: "Audit",
-        input: "Logs and packet histories",
+        input: "Internal checkpoint review",
         rule: "Credit problem-level engagement",
-        output: "Theme-credit and engagement profile",
+        output: "Theme-credit and revision target",
       },
     ],
   },
@@ -515,9 +515,9 @@ const componentMaps: Record<string, ComponentMapContent> = {
       },
       {
         layer: "Analysis",
-        input: "Usage, receipts, surveys, records",
-        rule: "De-identify and separate phases",
-        output: "Study-safe read",
+        input: "Private study files",
+        rule: "Keep analysis internal and separate phases",
+        output: "Study-design read",
       },
     ],
   },
@@ -545,7 +545,7 @@ const componentMaps: Record<string, ComponentMapContent> = {
       },
       {
         layer: "Ops",
-        input: "Exports, UI rows, QA checks",
+        input: "QA checks and day mapping",
         rule: "Score only after cycle close",
         output: "Daily grade and mapping correction",
       },
@@ -595,8 +595,8 @@ export function ProgramMap() {
           Prep, attempts, repair, receipts, portfolio work, AI-free assessment.
         </p>
         <p>
-          <span>Evidence layer</span>
-          Aggregate logs, audits, QA, de-identified analysis.
+          <span>Review layer</span>
+          Internal review, QA, prompt revisions, and course-team checks.
         </p>
       </div>
     </div>
@@ -665,7 +665,7 @@ export function DailyOperationsDiagram({ implementation }: { implementation: Imp
           <span>Student action</span>
           <span>Bot behavior</span>
           <span>Teacher move</span>
-          <span>Evidence produced</span>
+          <span>Course-team check</span>
         </div>
         {content.moments.map((moment) => (
           <section className="daily-moment" key={moment.time}>
@@ -673,7 +673,7 @@ export function DailyOperationsDiagram({ implementation }: { implementation: Imp
             <p>{moment.student}</p>
             <p>{moment.bot}</p>
             <p>{moment.teacher}</p>
-            <p>{moment.evidence}</p>
+            <p>{moment.check}</p>
           </section>
         ))}
       </div>

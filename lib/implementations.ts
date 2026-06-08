@@ -13,7 +13,6 @@ export type Implementation = {
   aiDesign: string[]
   studyDesign: string[]
   workflow: string[]
-  evidence: string[]
   lessons: string[]
   workflowHero: {
     image: string
@@ -22,7 +21,6 @@ export type Implementation = {
     steps: string[]
   }
   metrics: Array<{ value: string; label: string; detail: string }>
-  sourceFamilies: string[]
 }
 
 export const implementations: Implementation[] = [
@@ -36,7 +34,7 @@ export const implementations: Implementation[] = [
     subtitle: "The first local OpenWebUI and Ollama pilot.",
     accent: "teal",
     summary:
-      "Dr. Dania Zantout's first Math1000A build turned the course materials into topic-specific local tutors. It kept the sources close to the instructor and the data close to NYUAD before later work moved to NYU PilotGenAI.",
+      "Dr. Dania Zantout's first Math1000A build turned the course materials into topic-specific local tutors. It kept the sources close to the instructor before later work moved to NYU PilotGenAI.",
     coreQuestion:
       "Can a locally hosted, instructor-curated tutor help students prepare without turning homework into answer lookup?",
     motivation: [
@@ -53,46 +51,33 @@ export const implementations: Implementation[] = [
     ],
     studyDesign: [
       "This was a classroom pilot, not a randomized trial.",
-      "A five-percent AI engagement rubric valued use patterns, topic coverage, study effectiveness, and thoughtful interaction rather than raw message counts alone.",
-      "Engagement evidence came from anonymized OpenWebUI logs, aggregate message counts, and course-team review of how students actually used the bots.",
-      "The pilot also left the first archive: prompt records, model usage summaries, technical notes, and engagement reports.",
+      "A five-percent AI engagement rubric valued use patterns, topic coverage, study effectiveness, and thoughtful interaction rather than activity volume alone.",
+      "Internal review focused on whether the local topic mesh stayed close to course methods and helped students prepare between classes.",
+      "The pilot also left the first implementation archive: prompt versions, model notes, technical setup notes, and rubric language.",
     ],
     workflow: [
       "Dr. Dania's topic notes and exercises were organized by unit.",
       "The course team configured one bot per unit or review window.",
       "Students chose the relevant topic bot outside class.",
       "The local model retrieved from the bounded unit package and responded through OpenWebUI.",
-      "Aggregate logs and classroom observations fed the next round of design changes.",
-    ],
-    evidence: [
-      "The archived aggregate logs show 272 chats and 5,511 messages from May 26 to June 24, 2025.",
-      "The system recorded activity across 27 active days, with an average of 20.26 messages per chat.",
-      "The master prompt and knowledge archive records 35 total bots, 32 knowledge collections, and 196 linked files.",
-      "Model usage shows the early architecture split across local text models and a multimodal image-checking model.",
+      "Internal platform review and classroom observations fed the next round of design changes.",
     ],
     lessons: [
       "Local control mattered, but the unit mesh alone did not fully control how tutoring happened.",
       "Students benefited from topic clarity, yet later builds needed stronger routing from homework problem to concept and method.",
-      "The pilot gave later builds their working vocabulary: source bundles, prompt boundaries, review agents, and aggregate evidence.",
+      "The pilot gave later builds their working vocabulary: source bundles, prompt boundaries, review agents, and internal revision loops.",
     ],
     workflowHero: {
       image: "/images/workflow-heroes/summer-2025-local-pilot.webp",
       mobileImage: "/images/workflow-heroes/summer-2025-local-pilot-mobile.webp",
-      alt: "Workflow illustration showing course notes moving through a local model layer to student topic work, classroom math, and aggregate revision.",
-      steps: ["Course notes", "Local model layer", "Student topic choice", "Classroom work", "Aggregate revision"],
+      alt: "Workflow illustration showing course notes moving through a local model layer to student topic work, classroom math, and internal revision.",
+      steps: ["Course notes", "Local model layer", "Student topic choice", "Classroom work", "Internal revision"],
     },
     metrics: [
       { value: "35", label: "bots", detail: "Unit, review, upload, and checking bots." },
       { value: "196", label: "linked files", detail: "Instructor notes, exercises, and review packets." },
-      { value: "5,511", label: "messages", detail: "Aggregate pilot log total." },
-      { value: "27", label: "active days", detail: "Logged use across the pilot window." },
-    ],
-    sourceFamilies: [
-      "Summer 2025 AI project report and technical report",
-      "OpenWebUI prompt and knowledge archive",
-      "AI engagement rubric",
-      "Aggregate chat-log summary and model-usage files",
-      "Summer paper and revision notes",
+      { value: "32", label: "collections", detail: "Knowledge bundles organized around course topics." },
+      { value: "3", label: "model families", detail: "Local text and image-checking routes." },
     ],
   },
   {
@@ -122,22 +107,16 @@ export const implementations: Implementation[] = [
     ],
     studyDesign: [
       "This was an instructional build with engagement auditing, not an IRB randomized trial.",
-      "A 76-student roster was checked for platform adoption, login status, conversation activity, and real homework work.",
-      "HW6 and HW7 were manually audited through raw logs and packetized chat histories to separate concrete problem work from overview-only prompts.",
-      "The course-team reports identified engagement profiles: deep learners, high-volume micro-interaction users, and minimal or passive users.",
+      "The course team checked the workflow internally to see whether homework prompts led to real problem-level work.",
+      "HW6 and HW7 became design checkpoints for whether the bot was routing students to concepts rather than giving broad overview help.",
+      "The course-team reports separated deep mathematical work from passive or overview-only use for internal revision.",
     ],
     workflow: [
       "Dr. Dania's homework set was decomposed into themes and subskills.",
-      "Each subskill was linked to the relevant course PDF and receipt evidence requirement.",
+      "Each subskill was linked to the relevant course PDF and receipt requirement.",
       "A student entered a weekly bot with a problem, screenshot, or stuck point.",
       "The bot routed the request through the thematic analysis and source files.",
       "Manual and automated audits checked whether the interaction showed concrete homework work.",
-    ],
-    evidence: [
-      "The adoption snapshot used a 76-student roster: 38 students had active conversations, 6 logged in without conversations, and 32 had not logged in by the report snapshot.",
-      "Manual HW6/HW7 auditing awarded theme credit only when logs showed concrete work tied to a homework theme.",
-      "The master design report records 9 MathA Spring bots, 8 knowledge collections, 66 linked files, and 26,680 prompt characters.",
-      "Observed bottlenecks clustered around dense concepts such as logarithms, inverses, asymptotes, domains, and algebraic transformations.",
     ],
     lessons: [
       "Homework routing is stronger than asking students to choose a topic from memory.",
@@ -153,15 +132,8 @@ export const implementations: Implementation[] = [
     metrics: [
       { value: "9", label: "HSC bots", detail: "Weekly homework-scaffold builds." },
       { value: "66", label: "linked files", detail: "Thematic analyses, PDFs, and receipts." },
-      { value: "76", label: "roster", detail: "Adoption and engagement monitoring frame." },
-      { value: "45", label: "HW6 users", detail: "Students with any manual HW6 AI credit." },
-    ],
-    sourceFamilies: [
-      "Spring 2026 MathA professor reports",
-      "HW6/HW7 raw-log and manual engagement audits",
-      "Thematic-analysis and prep-receipt files",
-      "MathA Spring OpenWebUI prompt archive",
-      "Master design architecture report",
+      { value: "8", label: "collections", detail: "Course materials organized for weekly routing." },
+      { value: "2", label: "checkpoint weeks", detail: "HW6 and HW7 used for design review." },
     ],
   },
   {
@@ -180,7 +152,7 @@ export const implementations: Implementation[] = [
     motivation: [
       "The central problem was no longer whether students would use AI. They already could. The study asked whether an instructor-controlled bot could keep real mathematical work inside homework preparation.",
       "The IRB proposal framed the intervention as a third path between banning AI and accepting unrestricted answer engines: course-grounded tutoring run by the instructor.",
-      "The literature review kept the claims cautious. AI can improve immediate task performance in some settings, but it can also invite offloading, over-trust, weak revision, dependency, and bad evidence of learning.",
+      "The literature review kept the claims cautious. AI can improve immediate task performance in some settings, but it can also invite offloading, over-trust, weak revision, dependency, and shallow signals of learning.",
     ],
     aiDesign: [
       "Weekly HSC bots and a Midterm bot ran through NYU PilotGenAI/OpenWebUI with institutional model routing.",
@@ -193,45 +165,32 @@ export const implementations: Implementation[] = [
       "The IRB protocol used a randomized delayed-access design with consenting students pooled across coordinated sections.",
       "Early-access students used the course bots during the initial comparison window; delayed-access students prepared with ordinary permitted resources until access expanded after the Week 5 comparison point.",
       "All students had the same WebAssign homework, prep receipt structure, instructional materials, office hours, tutoring, and AI-free quizzes and exams.",
-      "Measures included course records, diagnostic data, selected MSES and MSLQ constructs, prep receipt evidence, usage metadata, and de-identified conversation analysis.",
-      "Platform rules kept student identifiers out of public reporting and routed model calls through NYU-controlled infrastructure.",
+      "Measures were defined in the IRB materials, while detailed study materials stay in the private project archive.",
+      "Platform rules routed model calls through NYU-controlled infrastructure and kept public reporting at the design level.",
     ],
     workflow: [
       "The course team translated weekly homework into alignment maps and teaching guides.",
       "Consenting students were randomized into early-access and delayed-access timing.",
       "Early-access students used weekly bots during the comparison window.",
       "Common quizzes, the midterm, and later assessments stayed AI-free.",
-      "Exports were de-identified, audited, and folded into prompt revision and stakeholder reporting.",
-    ],
-    evidence: [
-      "The May 5 audit covered 108 early-access chats and 1,188 turns; 92 chats were rated strong or mostly aligned.",
-      "The May 15 update analyzed 155 chats, 1,399 turns, and 14 observed users, separating comparison-period evidence from full-course rollout evidence.",
-      "Full-course rollout logs showed receipt/reflection behavior emerging in HW6 and HW7 use.",
-      "The May 16 data check framed 57 enrolled students, 54 activated platform users, and 3 pending users.",
+      "Internal study materials were checked and folded into prompt revision and stakeholder reporting.",
     ],
     lessons: [
       "The randomized comparison and the later full-course rollout are different phases; the site should not blur them.",
       "Prompt quality depended on exact-version handling, scope control, and refusal of bulk answer requests.",
-      "The study also needed export checks, group-label audits, de-identification, and issue logs before the evidence could be trusted.",
+      "The study also needed group-label checks, protocol review, and issue tracking before internal analysis could be trusted.",
     ],
     workflowHero: {
       image: "/images/workflow-heroes/spring-2026-mathb-delayed-access-study.webp",
       mobileImage: "/images/workflow-heroes/spring-2026-mathb-delayed-access-study-mobile.webp",
-      alt: "Workflow illustration showing consent and course files splitting into early and delayed access groups before common assessments and de-identified analysis.",
-      steps: ["Consent + files", "Early/delayed timing", "Socratic bot access", "AI-free assessments", "De-identified analysis"],
+      alt: "Workflow illustration showing consent and course files splitting into early and delayed access groups before common assessments and private analysis.",
+      steps: ["Consent + files", "Early/delayed timing", "Socratic bot access", "AI-free assessments", "Private analysis"],
     },
     metrics: [
-      { value: "57", label: "enrolled", detail: "Course roster used for stakeholder framing." },
       { value: "8", label: "bots", detail: "Seven weekly HSC agents plus Midterm." },
-      { value: "155", label: "chats", detail: "May 15 PreCalcB export analyzed." },
-      { value: "85.2%", label: "aligned", detail: "May 5 early-access chat alignment rate." },
-    ],
-    sourceFamilies: [
-      "IRB research proposal and final submission",
-      "OpenWebUI/PilotGenAI setup notes and data-handling appendix",
-      "Study information and consent materials",
-      "May 5 and May 15 conversation-analysis reports",
-      "Stakeholder deck notes, QA checklists, and literature-review notes",
+      { value: "2", label: "timing groups", detail: "Early-access and delayed-access comparison." },
+      { value: "5", label: "week window", detail: "Initial comparison before expanded access." },
+      { value: "1", label: "midterm bot", detail: "Review agent added to the weekly sequence." },
     ],
   },
   {
@@ -262,8 +221,8 @@ export const implementations: Implementation[] = [
     studyDesign: [
       "Summer PROSE uses a daily engagement workflow rather than an IRB delayed-access comparison.",
       "Daily grades combine a pre-class Prep phase and a post-class Autopsy phase on a 0, 0.5, 1 scale.",
-      "The team retrieves platform data through admin exports and per-user API pulls, then normalizes chats into auditable records.",
-      "Grade workflows keep detailed audit workbooks while Brightspace and shared grade files stay simple.",
+      "Internal platform materials and grading files stay outside the public site.",
+      "Grade workflows keep detailed internal workbooks while Brightspace and shared grade files stay simple.",
       "QA and daily mapping checks were part of the build, not cleanup after the fact.",
     ],
     workflow: [
@@ -271,38 +230,24 @@ export const implementations: Implementation[] = [
       "The Prep bot withholds in-class activity content and guides readiness through learning maps.",
       "Students complete the no-AI in-class learning activity.",
       "After class, the Autopsy bot uses the full repair packet to diagnose and verify representative problems.",
-      "Daily engagement scores combine Prep and Autopsy evidence after the cycle closes.",
-    ],
-    evidence: [
-      "First-week reporting captured 144 official Summer MathA chats, 5,170 exported messages, and 2,573 student messages.",
-      "All 15 roster counters were represented in the first-week aggregate exports.",
-      "Prep engagement was strong early, while post-class autopsy completion was the main monitoring risk.",
-      "Content 22 and Content 23 passed 16 of 16 QA checks on June 8, 2026.",
-      "The June 8 workflow audit verified 177 UI chat rows and corrected the Day 8/June 5 grading cycle mapping.",
+      "Daily engagement scores are finalized after the Prep and Autopsy cycle closes.",
     ],
     lessons: [
       "Knowledge separation is a design control: Prep should not see Autopsy-only materials.",
       "Receipt gates keep the bot from turning receipts or portfolios into one-click outputs.",
-      "The work now depends on release QA, complete data pulls, careful day mapping, and clean redaction.",
+      "The work now depends on release QA, careful day mapping, and clean public/private boundaries.",
     ],
     workflowHero: {
       image: "/images/workflow-heroes/summer-2026-matha-prose.webp",
       mobileImage: "/images/workflow-heroes/summer-2026-matha-prose-mobile.webp",
-      alt: "Workflow illustration showing the Summer PROSE cycle from prep-only materials to no-AI class work, autopsy repair, portfolio work, and daily audit.",
+      alt: "Workflow illustration showing the Summer PROSE cycle from prep-only materials to no-AI class work, autopsy repair, portfolio work, and daily QA.",
       steps: ["Prep-only materials", "Prep receipt", "No-AI class work", "Autopsy repair", "Daily audit"],
     },
     metrics: [
-      { value: "15", label: "learners", detail: "Roster counters in the Summer PROSE workflow." },
-      { value: "144", label: "chats", detail: "Official first-week Prep/Autopsy aggregate." },
-      { value: "5,170", label: "messages", detail: "First-week exported message count." },
+      { value: "2", label: "bot roles", detail: "Prep before class and Autopsy after class." },
+      { value: "7", label: "content sets", detail: "Content 17 through 23 in the QA sequence." },
+      { value: "5", label: "repair gates", detail: "Category, exercise, attempt, stuck point, mode." },
       { value: "16/16", label: "QA checks", detail: "Content 22 and 23 checks passed on June 8." },
-    ],
-    sourceFamilies: [
-      "PROSE Prep and Autopsy prompts",
-      "Learning maps, content PDFs, activity packets, and solution-note packets",
-      "QA reports for Content 17 through 23",
-      "Summer 2026 usage reports and visual reports",
-      "AI engagement grading workflow and June 8 audit notes",
     ],
   },
 ]
@@ -310,9 +255,9 @@ export const implementations: Implementation[] = [
 export const literatureFrame = [
   "The literature is mixed. AI can help in some settings, but the gains depend heavily on the task, the rules, and what counts as learning.",
   "Math and statistics are risky places for loose AI use because a solution can look plausible and still be wrong.",
-  "Course-bounded bots look more defensible than open-ended answer tools, but they still need evidence from the actual course.",
+  "Course-bounded bots look more defensible than open-ended answer tools, but they still need teacher review inside the actual course.",
   "The study was designed around known risks: offloading, over-trust, weak revision, dependency, inflated confidence, and shallow uptake.",
-  "Prep receipts, Show Your Work records, autopsy portfolios, and AI-free assessments make the student's process visible.",
+  "Prep receipts, Show Your Work pages, autopsy portfolios, and AI-free assessments keep the learning process inside the course workflow.",
 ]
 
 export const designPrinciples = [
@@ -329,12 +274,12 @@ export const designPrinciples = [
     text: "Prompts prioritize attempts, checkpoints, repairs, verification, and next steps over answer dumps.",
   },
   {
-    title: "Independent Evidence",
-    text: "AI-assisted work is paired with quizzes, exams, in-class activities, or portfolio evidence that students complete without AI.",
+    title: "Independent Checks",
+    text: "AI-assisted work is paired with quizzes, exams, in-class activities, or portfolio work that students complete without AI.",
   },
   {
-    title: "Public Safety",
-    text: "The public site uses diagrams and aggregate charts. Private logs, rosters, prompts, and assessment files stay out of git.",
+    title: "Private Data Stays Private",
+    text: "The public site explains the course design. Private study materials and assessment files stay out of git.",
   },
 ]
 

@@ -7,12 +7,10 @@ import { designPrinciples, implementations, literatureFrame } from "@/lib/implem
 import { ImplementationButtons } from "@/components/implementation-buttons"
 import { MiniWorkflowDiagram, ProgramMap } from "@/components/workflow-diagram"
 
-const researchAsset = (name: string) => `/images/research-assets/${name}`
-
 const overviewMetrics = [
   { value: "4", label: "course builds", detail: "From local pilot to Summer PROSE." },
   { value: "52+", label: "documented bots", detail: "Local topic tutors plus PilotGenAI builds." },
-  { value: "396", label: "reviewed records", detail: "Tracked literature corpus behind the study framing." },
+  { value: "4", label: "workflow models", detail: "Local, homework, study, and PROSE designs." },
   { value: "1", label: "IRB study", detail: "Randomized delayed-access Math1000B protocol." },
 ]
 
@@ -33,7 +31,7 @@ export default function Home() {
             <p className="eyebrow">NYU Abu Dhabi | Math1000A/B</p>
             <h1>Precalculus with Dr. Dania</h1>
             <p>
-              A public record of Dr. Dania Zantout's Math1000A/B course AI work: local tutors, homework-scaffold bots,
+              A public overview of Dr. Dania Zantout's Math1000A/B course AI work: local tutors, homework-scaffold bots,
               an IRB delayed-access study, and the Summer PROSE prep-and-autopsy cycle.
             </p>
             <ImplementationButtons className="hero-implementation-buttons" label="Open an implementation" />
@@ -84,7 +82,7 @@ export default function Home() {
       <section className="section-block" id="implementations">
         <div className="section-head">
           <p className="eyebrow">Build record</p>
-          <h2>Each build changed the bot and the way the course team read the evidence.</h2>
+          <h2>Each build changed the bot and the course workflow around it.</h2>
         </div>
 
         <div className="implementation-list">
@@ -104,29 +102,6 @@ export default function Home() {
               <ArrowRight size={22} aria-hidden="true" />
             </a>
           ))}
-        </div>
-      </section>
-
-      <section className="evidence-band" id="evidence">
-        <div className="section-head on-dark">
-          <p className="eyebrow">Evidence and safety</p>
-          <h2>Public records show the work without exposing the students.</h2>
-          <p>
-            This site uses process diagrams, aggregate charts, and cleaned-up notes. Raw logs, student identifiers,
-            consent exports, survey exports, grade books, private prompts, and assessment solutions stay out of the
-            website repository.
-          </p>
-        </div>
-
-        <div className="visual-pair">
-          <figure>
-            <img src={researchAsset("knowledge-composition.png")} alt="Aggregate knowledge composition chart" />
-            <figcaption>Knowledge files became routing files, teaching notes, reflection prompts, and QA material.</figcaption>
-          </figure>
-          <figure>
-            <img src={researchAsset("summer26-prose-usage.png")} alt="Aggregate Summer 2026 PROSE usage chart" />
-            <figcaption>Summer PROSE reporting distinguishes prep strength from post-class autopsy completion risk.</figcaption>
-          </figure>
         </div>
       </section>
 

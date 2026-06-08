@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { ArrowLeft, ArrowRight, CheckCircle2, FileText, ShieldCheck } from "lucide-react"
+import { ArrowLeft, ArrowRight, CheckCircle2, FileText } from "lucide-react"
 import { getImplementation, implementations } from "@/lib/implementations"
 import { ImplementationButtons } from "@/components/implementation-buttons"
 import { BotAnatomyDiagram, ComponentMapDiagram, DailyOperationsDiagram, WorkflowDiagram } from "@/components/workflow-diagram"
@@ -160,7 +160,7 @@ export default async function ImplementationPage({ params }: PageProps) {
       <section className="detail-section two-column" id="study-design">
         <div className="detail-section-head sticky-head">
           <p className="eyebrow">Study and operations design</p>
-          <h2>How the course team read the evidence.</h2>
+          <h2>How the course team organized the work.</h2>
         </div>
         <div className="detail-list">
           {implementation.studyDesign.map((item) => (
@@ -168,18 +168,6 @@ export default async function ImplementationPage({ params }: PageProps) {
               <FileText size={20} aria-hidden="true" />
               <p>{item}</p>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="evidence-detail" id="evidence">
-        <div className="detail-section-head on-dark">
-          <p className="eyebrow">Evidence read</p>
-          <h2>What the documents let us say publicly.</h2>
-        </div>
-        <div className="evidence-columns">
-          {implementation.evidence.map((item) => (
-            <p key={item}>{item}</p>
           ))}
         </div>
       </section>
@@ -192,26 +180,6 @@ export default async function ImplementationPage({ params }: PageProps) {
         <div className="lesson-list">
           {implementation.lessons.map((item) => (
             <p key={item}>{item}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="source-band">
-        <div className="source-copy">
-          <ShieldCheck size={24} aria-hidden="true" />
-          <div>
-            <p className="eyebrow">Source families reviewed</p>
-            <h2>Public-safe notes only.</h2>
-            <p>
-              These are the source families behind the page. Raw rosters, chat transcripts, consent exports, survey
-              exports, grade workbooks, admin URLs, access tokens, private prompts, and assessment solutions are not in
-              the public site or repository.
-            </p>
-          </div>
-        </div>
-        <div className="source-list">
-          {implementation.sourceFamilies.map((source) => (
-            <span key={source}>{source}</span>
           ))}
         </div>
       </section>
